@@ -205,7 +205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5733801f19253f4cb9b252e33b9151e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b77eab2e4bbf42944bde678cb5033964, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -692,6 +692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloseButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4034490398442303064, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 2625202058159327885}
     - target: {fileID: 4541162822807268288, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -754,11 +758,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541162822807268288, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 148.40001
+      value: 146.2
       objectReference: {fileID: 0}
     - target: {fileID: 4541162822807268288, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 44.12316
+      value: 41.7
       objectReference: {fileID: 0}
     - target: {fileID: 4541162822807268288, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -782,6 +786,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4541162822807268288, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
   m_PrefabInstance: {fileID: 3480354687772327320}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2625202058159327885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1450761040974247701, guid: 4aef2c218dbb79d449eb7e6b530544b6, type: 3}
+  m_PrefabInstance: {fileID: 3480354687772327320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &4873208467558123563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -954,11 +969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604598586169944009, guid: f5cb97ca9039e1e4084c59e05a63bf16, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 122.59203
+      value: 121.5
       objectReference: {fileID: 0}
     - target: {fileID: 1604598586169944009, guid: f5cb97ca9039e1e4084c59e05a63bf16, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 44.034897
+      value: 41.7
       objectReference: {fileID: 0}
     - target: {fileID: 1604598586169944009, guid: f5cb97ca9039e1e4084c59e05a63bf16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
