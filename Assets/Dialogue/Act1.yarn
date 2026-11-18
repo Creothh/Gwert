@@ -1,13 +1,274 @@
 ﻿title: Act1
 ---
--> Papa, tu me manques tellement
+<<declare $premier_message = "">>
+<<declare $b2_fait = false>>
+<<declare $c3_2_choisi = false>>
+<<declare $branche = "">>
+//A1, A2, A3
+-> "Papa, tu me manques tellement"
+    <<set $premier_message to "papa">>
 -> *Gribouiller un dessin qui ressemble vaguement à une voiture*
--> Cher journal, aujourd'hui ma vie n'a encore rien de passionnant...
+    <<set $premier_message to "voiture">>
+-> "Cher journal, aujourd'hui ma vie n'a encore rien de passionnant..."
+    <<set $premier_message to "journal">>
 
-// <<effacer_message>>
-// <<afficher_dessin famille>>
+//VERT : message effacé, dessin de famille
+//<<efface_message>>
+//<<affiche_dessin_famille>>
 
-Hilda: Qu'est-ce que c'est que ce délire ?
-Hilda: Si je peux même plus être libre sur mon propre pc...
-Hilda: C'est bizarre ce bug, le message n'a pas pu apparaître et disparaître tout seul...
+//JAUNE
+Hilda: Qu'est-ce que c'est que ce délire ? #pensee 
+Hilda: Si je peux même plus être libre sur mon propre PC... #pensee
+Hilda: C'est bizarre ce bug, le message n'a pas pu apparaître et disparaître tout seul... #pensee
+<<jump B_Choix>>
+===
+
+title: B_Choix
+---
+-> C'est trop étrange, il vaut mieux que je remette le PC à zéro... #pensee
+    <<jump B1_Reboot>>
+-> Je vais redémarrer le logiciel, c'est bizarre... <<if $b2_fait == false>> #pensee
+    <<jump B2_Redemarrer>>
+-> Euh... Y a quelqu'un ? 
+    <<jump B3_Quelquun>>
+-> S'appliquer et faire un dessin d'une jeune fille et de sa maman qui se prennent dans les bras 
+    <<jump B4_Dessiner>>
+===
+
+title: B1_Reboot
+---
+Narrateur: Certes, la curiosité est un vilain défaut, mais quand même... ça ne t'intrigue même pas un peu ?
+//<<game_over>>
+<<stop>>
+===
+
+title: B2_Redemarrer
+---
+//Turquoise
+<<ferme_fenetre>>
+<<wait 1>>
+<<relance_logiciel>>
+<<set $b2_fait to true>> 
+//JAUNE
+Hilda: Même après manipulation, le dessin est encore là... #pensee
+<<jump B_Choix>>
+===
+
+title: B3_Quelquun
+---
+Enfant: maman ? je ses que je doi pa etre sur lordinateur je sui desole :((( me gronde pa
+Hilda: Quoi ? Mais ? Qui es-tu ?
+Enfant: a ces pa maman ? bon ba alor sa va. ces rigolo ya jamai personne qui repon quen je fai des dessin
+<<jump Tu_veux_etre_ami>>
+===
+
+title: B4_Dessiner
+---
+Enfant: ooaaaaa ces tro booooo
+//VERT : la petite copie le dessin, gribouillage disproportionné
+//<<petite_copie_dessin>>
+-> Wow encore mieux que le mien ! Je me prosterne devant autant de talent x)
+    <<jump B4_1_Prosterne>>
+-> Mais qu'est-ce qui se passe ? Je parle à un enfant ou quoi ?
+    <<jump C4_Age>>
+===
+
+title: B4_1_Prosterne
+---
+Enfant: sa veu dire quoi prosterne ?
+Hilda: Ça veut dire que je trouve ton dessin très joli
+Enfant: ma maman me di toujour que ces pa bien de mentir. mes merci ces tro genti =)
+<<jump Tu_veux_etre_ami>>
+===
+
+title: Tu_veux_etre_ami
+---
+Enfant: tu veu etre mon ami et on fai des dessin ensemble =)
+-> Tu fais beaucoup de fautes d'orthographe. T'es un bébé cadum ou quoi ?
+    <<jump C1_bebe_cadum>>
+-> Oui, avec plaisir ! Tu dessines quoi en ce moment ? ^^
+    <<jump C2_dessin_poupoule>>
+-> Mmmmh... je sais pas trop, tu sais, j'étais en train de faire quelque chose d'important pour moi.
+    <<jump C3_forceuse>>
+-> Tu veux pas mes codes de cartes bleues non plus ?
+    <<jump C4_question_carte_bleu>>
+===
+
+title: C1_bebe_cadum
+---
+Enfant: je sui pa un bebe cadum ! jai 8 an dabord =( tes un gro caca
+Hilda: Oooh ça va, c'était une petite blague !
+Hilda: Eh oh, t'es là ? Je suis désolée...
+Enfant: tes tro une mechante personne ! arete ou je vai pleurer.
+-> Oooooh ça va, je suis désolée, faut pas être susceptible à ce point haha ;)
+    <<jump C1_1_Susceptible>>
+-> Je regrette mes paroles, par contre j'ai pas trop le temps de jouer là... tu m'en veux pas hein ?
+    <<jump Bad_Personne_temps>>
+===
+
+title: C1_1_Susceptible
+---
+Enfant: pfffffff je veu pa rigoler avec toi tes pa drole et tes pa belle moi je sui une grande >:(
+<<jump Bad_Non_bah>>
+===
+
+title: C2_dessin_poupoule
+---
+Enfant: ouiiii tro bien :D en se momen je fai des dessin de ma Poupoule
+Enfant: cete son anniversere il a pa longtemp
+Enfant: ces ma meilleur copine =D
+Enfant: tu ve voir mon copain ?
+-> Non, ne t'inquiète pas, tu n'es pas obligé de m'envoyer quoi que ce soit.
+    <<jump D1_Pas_oblige>>
+-> Moooooh c'est trop mignon, oui tu peux me montrer Poupoule si tu veux !
+    <<jump D2_Montrer>>
+-> Ahaha, ma copine*, ce qui est sûr, c'est que tu ne passes pas par 4 chemins, mdrrr <<if $c3_2_choisi == false>>
+    <<jump Good_Fille>>
+===
+
+title: C3_forceuse
+---
+Enfant: mai eeeeeeeu tes pa sympa...
+Enfant: diii ouiiiiiiiiii
+-> Bon d'accord, tu m'as eue. Bon alors, tu dessines quoi de beau ?
+    <<jump C2_dessin_poupoule>>
+-> Non, je suis désolée, mais je n'ai pas le temps pour ça.
+    <<jump Bad_Personne_temps>>
+===
+
+title: D1_Pas_oblige
+---
+Enfant: bah... pourquoi tu veu pa voir ? tu maime pa ?
+-> C'est-à-dire que je ne te connais pas et ça me met mal à l'aise... Et ce n'est pas une question de t'aimer ou pas, comme je te l'ai dit, je sais pas qui t'es.
+    <<jump Bad_5_1>>
+-> Ne te vexe pas, je suis juste pas la plus à l'aise =).
+    <<jump D1_2_Vexe>>
+===
+
+title: D1_2_Vexe
+---
+Enfant: a dakor je voi. ces pa grave. mai je veu come meme etre copine avec toi... si te plai. je sui tou seul moi
+Hilda: Bon, tu as gagné, mais je veux la meilleure photo de Poupoule que tu as =)
+<<jump D2_Montrer>>
+===
+
+
+title: Bad_Personne_temps
+---
+Enfant: bon dakor... personne na jamai le temp pour moi de tou facon =(
+//JAUNE
+Narrateur: L'enfant n'a pas l'air au meilleur de sa forme... peut-être faudrait-il essayer de lui remonter le moral ?
+//C.3.2 1 et C.3.2 2
+-> Ne dis pas ça... je suis sûre qu'il y a plein de personnes pour qui tu comptes
+    <<jump Bad_3_2_1>>
+-> Bon, si je te donne 10 minutes de mon temps là maintenant, après tu me laisses tranquille ?
+    <<set $c3_2_choisi to true>>
+    <<jump C2_dessin_poupoule>>
+===
+
+title: Bad_3_2_1
+---
+Enfant: comen tu pourai le savoir ? tu me cone pa et tu na pa de temp a me doner pour le savoir.
+//C.5 1 et C.5 2
+-> Bon écoute, j'essaye d'être sympa et toi tu prends tout mal. Faut que tu te remettes en question aussi un peu.
+    <<jump Bad_Non_bah>>
+-> Ok, je voulais juste être gentille
+    <<jump Bad_5_1>>
+===
+
+title: Bad_Non_bah
+---
+Enfant: non bah ces bon je veu plu fer de dessin avec toi
+Enfant: pourquoi tu es si mechante... jai fai quoi pour meriter sa moi...
+Enfant: je vai le dire ! je vai le dire a ma meilleur ami Poupoule parce que au moin elle et ba elle mecoute et elle est toujour la pour moi quan jai besoin de calin !
+Enfant: et mes dessin tu les vera jamai de ta vie ces tro tar ! je vai tou les cache pour que jamai tu les trouve vieille sorciere
+//JAUNE
+Hilda: J'y suis peut-être allée un peu fort avec cette gamine... #pensee
+<<jump Bad_Fin>>
+===
+
+title: Bad_5_1
+---
+Enfant: pfff jai labitude detre seul de tou facon alor sa change rien a ma vie
+Enfant: puis je te cone pa tu me cone pa alor on est pareil toi et moi
+Enfant: je vai retourner fer des dessin toute seul. ils son mieu dans le classeur de papa lui au moin il les regarde !
+Enfant: quan il a le temp
+//JAUNE
+Hilda: La pauvre, elle n'a vraiment pas l'air d'avoir une vie marrante... #pensee
+<<jump Bad_Fin>>
+===
+
+
+title: Dossier_Apparait
+---
+//TURQUOISE : en arrière-plan, derrière la fenêtre de l'application
+//<<dossier_apparait>>
+Hilda: Moi qui voulais un peu de rebondissement dans ma vie... Je me demande quand même qui est cette enfant. #pensee
+Hilda: En attendant son retour, je vais continuer à fouiller un peu le PC. #pensee
+//TURQUOISE : le joueur ferme la fenêtre, le dossier « Photo super anniversere » est apparu sur le bureau
+<<ferme_fenetre>>
+<<jump Mini_jeu_1>>
+===
+
+title: Mini_jeu_1
+---
+//<<lance_mini_jeu_1>>
+<<stop>>
+===
+
+title: C4_question_carte_bleu
+---
+Enfant: ces quoi une carte bleu ces come les carte pokemon et les diddl ?
+-> Alors non, mais avec tu peux en acheter beaucoup. Dis-moi, tu as quel âge ?
+    <<jump C4_Age>>
+===
+
+title: C4_Age
+---
+Enfant: mes paren mon toujour di de pa doner mon age a des gen que je cone pa mai je sui en CE2 B
+Hilda: Okay... Tes parents ne t'ont jamais dit de faire attention à qui tu parles sur l'ordinateur ?
+Enfant: euuuuuu je ses pa... il mon di de pa parler au inconu dans la rue sur le pc il men on jamai parler. mai maintenan tu nes plu un inconu alor sa va =)))
+Hilda: D'accord, je vois x). J'imagine que sous cette logique oui, je suis plus une inconnue.
+<<jump Good_Fille>>
+===
+
+title: Good_Fille
+---
+Enfant: A MAIS TES UNE FILLE ! TROOOO BIEN come sa on pourra etre super duper copine tro tro biiiien
+Enfant: en plu jai toujour reve davoir une soeur ou une amie pour fer des dessin tro mignon avec des animau tro mignon. siii te plai on peu dessiner toute les 2 ?
+-> Oui si tu veux ! Tu veux qu'on dessine quoi ?
+    <<jump Good_Poupoule>>
+-> Non, je suis désolée, mais je n'ai pas le temps pour ça.
+    <<jump Bad_Personne_temps>>
+===
+
+title: Good_Poupoule
+---
+Enfant: on pouré dessiner Poupoule ! ces ma meilleur copine depui super longtemp mai elle est diferente de toi. je vai te montrer une photo pour quon dessine ensemble...
+Enfant: jen ai pleeeeeeein je prepare un classeur sur lecran pour tou te montrer ma super super copine de la mor qui tu
+Hilda: Hâte de voir ça ! Et au fait, c'est quoi ton prénom, ma super duper nouvelle petite soe--
+//TURQUOISE
+//<<message_interrompu>>
+Enfant: NOOOOOOOON ;( ya mon papa qui mappel je doi ranger le bazar que jai mi dan le salon... je doi y aler sinon jevai etre prive dordinateur et je vai plu pouvoir te parler apre !!!! promet moi detre encore la quan je revienré...
+<<set $branche to "good">>
+<<jump Dossier_Apparait>>
+===
+
+title: D2_Montrer
+---
+Enfant: tro cooool =D je vai tou les metre dans le classeur sur lecran pour te montrer
+Hilda: Au fait, toi, tu t'appelles comm--
+//TURQUOISE
+//<<message_interrompu>>
+Enfant: ya mon papa qui mappel pour fer un truc pfffffff je revien !
+<<set $branche to "neutre">>
+<<jump Dossier_Apparait>>
+===
+
+title: Bad_Fin
+---
+Enfant: et ba tu sais quoi et ba mon papa il mappel donc aurevoir
+//<<enfant_deconnecte>>
+<<set $branche to "bad">>
+<<jump Dossier_Apparait>>
 ===
