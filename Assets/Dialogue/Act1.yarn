@@ -4,16 +4,18 @@
 <<declare $b2_fait = false>>
 <<declare $c3_2_choisi = false>>
 <<declare $branche = "">>
+
 //A1, A2, A3
 -> "Papa, tu me manques tellement"
     <<set $premier_message to "papa">>
+    Hilda: Papa, tu me manques tellement
 -> *Gribouiller un dessin qui ressemble vaguement à une voiture*
     <<set $premier_message to "voiture">>
 -> "Cher journal, aujourd'hui ma vie n'a encore rien de passionnant..."
     <<set $premier_message to "journal">>
+    Hilda: Cher journal, aujourd'hui ma vie n'a encore rien de passionnant...
 
-//VERT : message effacé, dessin de famille
-//<<efface_message>>
+//VERT : dessin de famille
 //<<affiche_dessin_famille>>
 
 //JAUNE
@@ -30,6 +32,7 @@ title: B_Choix
 -> Je vais redémarrer le logiciel, c'est bizarre... <<if $b2_fait == false>> #pensee
     <<jump B2_Redemarrer>>
 -> Euh... Y a quelqu'un ? 
+    Hilda: Euh... Y a quelqu'un?
     <<jump B3_Quelquun>>
 -> S'appliquer et faire un dessin d'une jeune fille et de sa maman qui se prennent dans les bras 
     <<jump B4_Dessiner>>
@@ -85,12 +88,16 @@ title: Tu_veux_etre_ami
 ---
 Enfant: tu veu etre mon ami et on fai des dessin ensemble =)
 -> Tu fais beaucoup de fautes d'orthographe. T'es un bébé cadum ou quoi ?
+    Hilda: Tu fais beaucoup de fautes d'orthographe. T'es un bébé cadum ou quoi ?
     <<jump C1_bebe_cadum>>
 -> Oui, avec plaisir ! Tu dessines quoi en ce moment ? ^^
+    Hilda: Oui, avec plaisir ! Tu dessines quoi en ce moment ? ^^
     <<jump C2_dessin_poupoule>>
 -> Mmmmh... je sais pas trop, tu sais, j'étais en train de faire quelque chose d'important pour moi.
+    Hilda: Mmmmh... je sais pas trop, tu sais, j'étais en train de faire quelque chose d'important pour moi.
     <<jump C3_forceuse>>
 -> Tu veux pas mes codes de cartes bleues non plus ?
+    Hilda: Tu veux pas mes codes de cartes bleues non plus ?
     <<jump C4_question_carte_bleu>>
 ===
 
@@ -101,9 +108,11 @@ Hilda: Oooh ça va, c'était une petite blague !
 Hilda: Eh oh, t'es là ? Je suis désolée...
 Enfant: tes tro une mechante personne ! arete ou je vai pleurer.
 -> Oooooh ça va, je suis désolée, faut pas être susceptible à ce point haha ;)
+    Hilda: Oooooh ça va, je suis désolée, faut pas être susceptible à ce point haha ;)
     <<jump C1_1_Susceptible>>
 -> Je regrette mes paroles, par contre j'ai pas trop le temps de jouer là... tu m'en veux pas hein ?
     <<jump Bad_Personne_temps>>
+    Hilda: Je regrette mes paroles, par contre j'ai pas trop le temps de jouer là... tu m'en veux pas hein ?
 ===
 
 title: C1_1_Susceptible
@@ -119,10 +128,13 @@ Enfant: cete son anniversere il a pa longtemp
 Enfant: ces ma meilleur copine =D
 Enfant: tu ve voir mon copain ?
 -> Non, ne t'inquiète pas, tu n'es pas obligé de m'envoyer quoi que ce soit.
+    Hilda: Non, ne t'inquiète pas, tu n'es pas obligé de m'envoyer quoi que ce soit.
     <<jump D1_Pas_oblige>>
 -> Moooooh c'est trop mignon, oui tu peux me montrer Poupoule si tu veux !
+    Hilda: Moooooh c'est trop mignon, oui tu peux me montrer Poupoule si tu veux !
     <<jump D2_Montrer>>
 -> Ahaha, ma copine*, ce qui est sûr, c'est que tu ne passes pas par 4 chemins, mdrrr <<if $c3_2_choisi == false>>
+    Hilda: Ahaha, ma copine*, ce qui est sûr, c'est que tu ne passes pas par 4 chemins, mdrrr
     <<jump Good_Fille>>
 ===
 
@@ -131,8 +143,10 @@ title: C3_forceuse
 Enfant: mai eeeeeeeu tes pa sympa...
 Enfant: diii ouiiiiiiiiii
 -> Bon d'accord, tu m'as eue. Bon alors, tu dessines quoi de beau ?
+    Hilda: Bon d'accord, tu m'as eue. Bon alors, tu dessines quoi de beau ?
     <<jump C2_dessin_poupoule>>
 -> Non, je suis désolée, mais je n'ai pas le temps pour ça.
+    Hilda: Non, je suis désolée, mais je n'ai pas le temps pour ça.
     <<jump Bad_Personne_temps>>
 ===
 
@@ -140,8 +154,10 @@ title: D1_Pas_oblige
 ---
 Enfant: bah... pourquoi tu veu pa voir ? tu maime pa ?
 -> C'est-à-dire que je ne te connais pas et ça me met mal à l'aise... Et ce n'est pas une question de t'aimer ou pas, comme je te l'ai dit, je sais pas qui t'es.
+    Hilda: C'est-à-dire que je ne te connais pas et ça me met mal à l'aise... Et ce n'est pas une question de t'aimer ou pas, comme je te l'ai dit, je sais pas qui t'es.
     <<jump Bad_5_1>>
 -> Ne te vexe pas, je suis juste pas la plus à l'aise =).
+    Hilda: Ne te vexe pas, je suis juste pas la plus à l'aise =).
     <<jump D1_2_Vexe>>
 ===
 
@@ -161,7 +177,9 @@ Narrateur: L'enfant n'a pas l'air au meilleur de sa forme... peut-être faudrait
 //C.3.2 1 et C.3.2 2
 -> Ne dis pas ça... je suis sûre qu'il y a plein de personnes pour qui tu comptes
     <<jump Bad_3_2_1>>
+    Hilda: Ne dis pas ça... je suis sûre qu'il y a plein de personnes pour qui tu comptes
 -> Bon, si je te donne 10 minutes de mon temps là maintenant, après tu me laisses tranquille ?
+    Hilda: Bon, si je te donne 10 minutes de mon temps là maintenant, après tu me laisses tranquille ?
     <<set $c3_2_choisi to true>>
     <<jump C2_dessin_poupoule>>
 ===
@@ -171,8 +189,10 @@ title: Bad_3_2_1
 Enfant: comen tu pourai le savoir ? tu me cone pa et tu na pa de temp a me doner pour le savoir.
 //C.5 1 et C.5 2
 -> Bon écoute, j'essaye d'être sympa et toi tu prends tout mal. Faut que tu te remettes en question aussi un peu.
+    Hilda: Bon écoute, j'essaye d'être sympa et toi tu prends tout mal. Faut que tu te remettes en question aussi un peu.
     <<jump Bad_Non_bah>>
 -> Ok, je voulais juste être gentille
+    Hilda: Ok, je voulais juste être gentille
     <<jump Bad_5_1>>
 ===
 

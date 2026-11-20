@@ -7,6 +7,8 @@ public class DialogueCommands : MonoBehaviour
     [SerializeField] DialogueRunner dialogueRunner;
     [SerializeField] AppWindow appWindow;
 
+    [SerializeField] ChatBubble chatBubble;
+
     void Awake()
     {
         dialogueRunner.AddCommandHandler("ferme_fenetre", appWindow.CloseWindow);

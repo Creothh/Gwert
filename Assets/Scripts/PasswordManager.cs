@@ -11,6 +11,8 @@ public class PasswordManager : MonoBehaviour
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] GameObject passwordTooltip;
 
+    [SerializeField] GameObject passwordScreen;
+
     // variables 
 
     string correctPassword = "Hilda"; // defini comme case sensitive mais à voir
@@ -33,9 +35,10 @@ public class PasswordManager : MonoBehaviour
         {
 
             Debug.Log("Correct Password"); // juste pendant qu'on fait les tests évidemment
-            descriptionText.text = "Bon Password mtn imagine un loading screen mdr";
+            descriptionText.text = "Bienvenue";
             descriptionText.color = Color.green;
             passwordTooltip.SetActive(false);
+            passwordScreen.SetActive(false);
             currentErrorAmount = 0;
         }
         else
