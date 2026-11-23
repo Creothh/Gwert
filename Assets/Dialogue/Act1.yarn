@@ -1,4 +1,4 @@
-﻿title: Act1
+title: Act1
 ---
 <<declare $premier_message = "">>
 <<declare $b2_fait = false>>
@@ -11,30 +11,35 @@
     Hilda: Papa, tu me manques tellement
 -> *Gribouiller un dessin qui ressemble vaguement à une voiture*
     <<set $premier_message to "voiture">>
+    <<affiche_dessin car_drawing>>
 -> "Cher journal, aujourd'hui ma vie n'a encore rien de passionnant..."
     <<set $premier_message to "journal">>
     Hilda: Cher journal, aujourd'hui ma vie n'a encore rien de passionnant...
 
 //VERT : dessin de famille
-//<<affiche_dessin_famille>>
+<<wait 2>>
+<<affiche_dessin family_drawing>>
+<<wait 1>>
 
 //JAUNE
-Hilda: Qu'est-ce que c'est que ce délire ? #pensee 
+Hilda: Qu'est-ce que c'est que ce délire ? #pensee
 Hilda: Si je peux même plus être libre sur mon propre PC... #pensee
-Hilda: C'est bizarre ce bug, le message n'a pas pu apparaître et disparaître tout seul... #pensee
+Hilda: C'est bizarre ce bug, ce dessin n'a pas pu apparaître tout seul... #pensee
 <<jump B_Choix>>
 ===
 
 title: B_Choix
 ---
--> C'est trop étrange, il vaut mieux que je remette le PC à zéro... #pensee
+-> C'est trop étrange... Jefface toutes les données du PC et on n'en parle plus. #pensee
     <<jump B1_Reboot>>
 -> Je vais redémarrer le logiciel, c'est bizarre... <<if $b2_fait == false>> #pensee
     <<jump B2_Redemarrer>>
--> Euh... Y a quelqu'un ? 
+-> Euh... Y a quelqu'un ?
     Hilda: Euh... Y a quelqu'un?
     <<jump B3_Quelquun>>
--> S'appliquer et faire un dessin d'une jeune fille et de sa maman qui se prennent dans les bras 
+-> S'appliquer et faire un dessin d'une jeune fille et de sa maman qui se prennent dans les bras
+    <<wait 2>>
+    <<affiche_dessin mom_daughter_drawing>>
     <<jump B4_Dessiner>>
 ===
 
@@ -51,7 +56,7 @@ title: B2_Redemarrer
 <<ferme_fenetre>>
 <<wait 1>>
 <<relance_logiciel>>
-<<set $b2_fait to true>> 
+<<set $b2_fait to true>>
 //JAUNE
 Hilda: Même après manipulation, le dessin est encore là... #pensee
 <<jump B_Choix>>
@@ -69,10 +74,12 @@ title: B4_Dessiner
 ---
 Enfant: ooaaaaa ces tro booooo
 //VERT : la petite copie le dessin, gribouillage disproportionné
-//<<petite_copie_dessin>>
+<<affiche_dessin copy_drawing>>
 -> Wow encore mieux que le mien ! Je me prosterne devant autant de talent x)
+    Hilda: Wow encore mieux que le mien ! Je me prosterne devant autant de talent x)
     <<jump B4_1_Prosterne>>
 -> Mais qu'est-ce qui se passe ? Je parle à un enfant ou quoi ?
+    Hilda: Mais qu'est-ce qui se passe ? Je parle à un enfant ou quoi ?
     <<jump C4_Age>>
 ===
 
@@ -111,8 +118,8 @@ Enfant: tes tro une mechante personne ! arete ou je vai pleurer.
     Hilda: Oooooh ça va, je suis désolée, faut pas être susceptible à ce point haha ;)
     <<jump C1_1_Susceptible>>
 -> Je regrette mes paroles, par contre j'ai pas trop le temps de jouer là... tu m'en veux pas hein ?
-    <<jump Bad_Personne_temps>>
     Hilda: Je regrette mes paroles, par contre j'ai pas trop le temps de jouer là... tu m'en veux pas hein ?
+    <<jump Bad_Personne_temps>>
 ===
 
 title: C1_1_Susceptible
@@ -176,8 +183,8 @@ Enfant: bon dakor... personne na jamai le temp pour moi de tou facon =(
 Narrateur: L'enfant n'a pas l'air au meilleur de sa forme... peut-être faudrait-il essayer de lui remonter le moral ?
 //C.3.2 1 et C.3.2 2
 -> Ne dis pas ça... je suis sûre qu'il y a plein de personnes pour qui tu comptes
-    <<jump Bad_3_2_1>>
     Hilda: Ne dis pas ça... je suis sûre qu'il y a plein de personnes pour qui tu comptes
+    <<jump Bad_3_2_1>>
 -> Bon, si je te donne 10 minutes de mon temps là maintenant, après tu me laisses tranquille ?
     Hilda: Bon, si je te donne 10 minutes de mon temps là maintenant, après tu me laisses tranquille ?
     <<set $c3_2_choisi to true>>
@@ -240,6 +247,7 @@ title: C4_question_carte_bleu
 ---
 Enfant: ces quoi une carte bleu ces come les carte pokemon et les diddl ?
 -> Alors non, mais avec tu peux en acheter beaucoup. Dis-moi, tu as quel âge ?
+    Hilda: Alors non, mais avec tu peux en acheter beaucoup. Dis-moi, tu as quel âge ?
     <<jump C4_Age>>
 ===
 
@@ -257,8 +265,10 @@ title: Good_Fille
 Enfant: A MAIS TES UNE FILLE ! TROOOO BIEN come sa on pourra etre super duper copine tro tro biiiien
 Enfant: en plu jai toujour reve davoir une soeur ou une amie pour fer des dessin tro mignon avec des animau tro mignon. siii te plai on peu dessiner toute les 2 ?
 -> Oui si tu veux ! Tu veux qu'on dessine quoi ?
+    Hilda: Oui si tu veux ! Tu veux qu'on dessine quoi ?
     <<jump Good_Poupoule>>
 -> Non, je suis désolée, mais je n'ai pas le temps pour ça.
+    Hilda: Non, je suis désolée, mais je n'ai pas le temps pour ça.
     <<jump Bad_Personne_temps>>
 ===
 
@@ -277,7 +287,7 @@ Enfant: NOOOOOOOON ;( ya mon papa qui mappel je doi ranger le bazar que jai mi d
 title: D2_Montrer
 ---
 Enfant: tro cooool =D je vai tou les metre dans le classeur sur lecran pour te montrer
-Hilda: Au fait, toi, tu t'appelles comm--
+Hilda: Au fait, toi, tu t'appelles comment?
 //TURQUOISE
 //<<message_interrompu>>
 Enfant: ya mon papa qui mappel pour fer un truc pfffffff je revien !

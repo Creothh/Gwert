@@ -3288,7 +3288,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCommands
   dialogueRunner: {fileID: 8309902629013597724}
   appWindow: {fileID: 2176499349693195193}
-  chatBubble: {fileID: 0}
+  chatPresenter: {fileID: 2055040382}
+  drawings:
+  - {fileID: 21300000, guid: 880e5b9c1f9d6f448abd69148bc914b6, type: 3}
+  - {fileID: 21300000, guid: 1e2c91036a0e72a46933305469478f97, type: 3}
+  - {fileID: 21300000, guid: c96e82129412a67448f6e83146a5fb97, type: 3}
+  - {fileID: 21300000, guid: bd7fc1f81cc00fb4f9df68452842f0bc, type: 3}
 --- !u!4 &1446010857
 Transform:
   m_ObjectHideFlags: 0
@@ -3689,6 +3694,7 @@ MonoBehaviour:
   hildaColor: {r: 0.17480828, g: 0.6603774, b: 0.11525454, a: 1}
   enfantColor: {r: 0.9716981, g: 0.041251317, b: 0.041251317, a: 1}
   chatScroll: {fileID: 301126009}
+  answerDelay: 2000
 --- !u!1 &2077776253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,20 +4821,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_PressedColor.a
-      value: 0.5372549
+      value: 0.21960784
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
-      value: 0.4528302
+      value: 0.8773585
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_PressedColor.g
-      value: 0.4528302
+      value: 0.8773585
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_PressedColor.r
-      value: 0.4528302
+      value: 0.8773585
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_DisabledColor.a
@@ -4839,20 +4857,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.31764707
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.5377358
+      value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.5377358
+      value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.5377358
+      value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 4559192015635032208, guid: 6a9b761a9579d474cba5b5cf53d635c4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
